@@ -5,7 +5,7 @@ const App = () => {
 
   return (
     <>
-gлл
+gл
     </>
   )
 };
