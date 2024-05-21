@@ -9,7 +9,10 @@
 
 /* card itself
 ********************************************************************/
-
+button {
+  padding: 10px;
+  margin: 10px;
+}
 .playingCards .card {
   display: inline-block;
   width: 3.3em;

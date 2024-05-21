@@ -1,27 +1,33 @@
-import './App.css'
+import React, { useState } from 'react';
 import Card from "./componets/Card/Card.tsx";
 import { CardDeck } from './lib/CardDeck';
 
 
+interface ICard {
+    rank: string;
+    suit: 'diams' | 'hearts' | 'clubs' | 'spades';
+}
+
 const App: React.FC = () => {
-    const deck = new CardDeck();
+    const [cards, setCards] = useState<ICard[]>([]);
 
-    const randomCard = deck.getCard();
-
-    const randomCards = deck.getCards(5);
+    const dealCards = () => {
+        const deck = new CardDeck();
+        const dealtCards = deck.getCards(5);
+        setCards(dealtCards);
+    };
 
     return (
-        <div className="playingCards faceImages">
+        <div>
             <h1>Card Deck Example</h1>
-            <h2>Single Random Card</h2>
-            <Card rank={randomCard.rank} suit={randomCard.suit}/>
-            <h2>Five Random Cards</h2>
-            <div>
-                {randomCards.map((card, index) => (
-                    <Card key={index} rank={card.rank} suit={card.suit}/>
-                ))}
-            </div>
-
+            <button onClick={dealCards}>Раздать карты</button>
+            {cards.length > 0 && (
+                <div className="playingCards faceImages">
+                    {cards.map((card, index) => (
+                        <Card key={index} rank={card.rank} suit={card.suit} />
+                    ))}
+                </div>
+            )}
         </div>
     );
 };
