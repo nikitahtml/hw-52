@@ -20,7 +20,7 @@ const App: React.FC = () => {
     return (
         <div>
             <h1>Card Deck Example</h1>
-            <button onClick={dealCards}>Раздать карты</button>
+            <button onClick={dealCards}>Раздать карты </button>
             {cards.length > 0 && (
                 <div className="playingCards faceImages">
                     {cards.map((card, index) => (
