@@ -15,9 +15,9 @@ const Card: React.FC<CardProps> = ({ rank, suit }) => {
 
     return (
         <span className={`card rank-${rank} ${suit}`}>
-      <span className="rank">{rank}</span>
-      <span className="suit">{suitSymbol[suit]}</span>
-    </span>
+            <span className="rank">{rank}</span>
+            <span className="suit">{suitSymbol[suit]}</span>
+        </span>
     );
 };
 
